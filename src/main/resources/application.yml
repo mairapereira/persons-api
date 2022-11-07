@@ -1,0 +1,31 @@
+server:
+  servlet:
+    context-path: /persons-api
+spring:
+  application:
+    name: persons-api
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:h2:mem:personsdb
+    username: pegasus
+    password: db123
+    driverClassName: org.h2.Driver
+  security:
+    user:
+      name: pegasus
+      password: test123
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
